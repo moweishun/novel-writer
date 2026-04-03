@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Character",
+  "description": "人物设定",
+  "type": "object",
+  "properties": {
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "char_id": {
+            "type": "string",
+            "description": "人物唯一标识"
+          },
+          "name": {
+            "type": "string",
+            "description": "姓名"
+          },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "别名/称号"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["protagonist", "antagonist", "supporting", "minor"],
+            "description": "角色定位"
+          },
+          "archetype": {
+            "type": "string",
+            "description": "原型：追寻者、导师、阴影、变形者、盟友、守门人等"
+          },
+          "appearance": {
+            "type": "string",
+            "description": "外貌特征（简洁，抓住辨识度最高的特点）"
+          },
+          "personality": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "性格特质（3-5个关键词）"
+          },
+          "goals": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "表面目标"
+          },
+          "motivations": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "内在驱动力"
+          },
+          "flaws": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "性格弱点或心理阴影"
+          },
+          "strengths": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "优势"
+          },
+          "backstory": {
+            "type": "string",
+            "description": "背景故事（200-300字）"
+          },
+          "key_experiences": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "关键经历"
+          },
+          "arc": {
+            "type": "object",
+            "properties": {
+              "start_state": {
+                "type": "string",
+                "description": "起始状态"
+              },
+              "end_state": {
+                "type": "string",
+                "description": "终结状态"
+              },
+              "key_turning_points": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "关键转折点"
+              }
+            },
+            "required": ["start_state", "end_state"]
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "with": {
+                  "type": "string",
+                  "description": "关联人物ID"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "关系类型：盟友/敌对/师徒/爱慕/竞争等"
+                },
+                "intensity": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "关系强度"
+                }
+              },
+              "required": ["with", "type"]
+            }
+          },
+          "speaking_style": {
+            "type": "string",
+            "description": "说话风格（口头禅、语速、用词习惯等）"
+          },
+          "first_appearance": {
+            "type": ["string", "null"],
+            "description": "首次出场章节"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "deceased", "unknown"],
+            "default": "active",
+            "description": "当前状态"
+          }
+        },
+        "required": ["char_id", "name", "role"]
+      }
+    }
+  },
+  "required": ["characters"]
+}

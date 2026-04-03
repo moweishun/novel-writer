@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "World Setting",
+  "description": "小说世界观设定",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": ["string", "null"],
+      "description": "世界唯一标识"
+    },
+    "name": {
+      "type": ["string", "null"],
+      "description": "世界名称"
+    },
+    "summary": {
+      "type": ["string", "null"],
+      "description": "一句话概述"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "详细描述"
+    },
+    "era": {
+      "type": ["string", "null"],
+      "description": "时代背景"
+    },
+    "geography": {
+      "type": "object",
+      "properties": {
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "region_id": { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "features": { "type": "array", "items": { "type": "string" } },
+              "key_locations": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["region_id", "name"]
+          }
+        },
+        "key_locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "loc_id": { "type": "string" },
+              "name": { "type": "string" },
+              "region_id": { "type": "string" },
+              "description": { "type": "string" },
+              "significance": { "type": "string" }
+            },
+            "required": ["loc_id", "name"]
+          }
+        }
+      },
+      "required": ["regions", "key_locations"]
+    },
+    "power_system": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": ["string", "null"],
+          "description": "力量类型：魔法/武道/科技/灵力等"
+        },
+        "rules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "力量规则"
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "力量限制"
+        },
+        "levels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "level_name": { "type": "string" },
+              "description": { "type": "string" },
+              "requirements": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["level_name"]
+          }
+        }
+      },
+      "required": ["type", "rules", "limitations"]
+    },
+    "history": {
+      "type": "object",
+      "properties": {
+        "timeline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": { "type": "string" },
+              "event": { "type": "string" },
+              "significance": { "type": "string" }
+            },
+            "required": ["time", "event"]
+          }
+        },
+        "major_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_id": { "type": "string" },
+              "name": { "type": "string" },
+              "time": { "type": "string" },
+              "description": { "type": "string" },
+              "impact": { "type": "string" }
+            },
+            "required": ["event_id", "name"]
+          }
+        }
+      },
+      "required": ["timeline", "major_events"]
+    },
+    "rules": {
+      "type": "object",
+      "properties": {
+        "physical": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "物理规则"
+        },
+        "social": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "社会规则"
+        },
+        "taboos": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "禁忌"
+        }
+      },
+      "required": ["physical", "social", "taboos"]
+    },
+    "tone_keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "基调关键词"
+    },
+    "locked": {
+      "type": "boolean",
+      "description": "是否已锁定（锁定后修改需用户确认）",
+      "default": false
+    }
+  },
+  "required": ["world_id", "name", "summary", "description"]
+}

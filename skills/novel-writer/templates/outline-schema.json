@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Story Outline",
+  "description": "小说总大纲",
+  "type": "object",
+  "properties": {
+    "structure_type": {
+      "type": ["string", "null"],
+      "enum": ["three_act", "qi_cheng_zhuan_he", "heros_journey", "six_act", "custom"],
+      "description": "叙事结构类型"
+    },
+    "acts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "act_number": {
+            "type": "integer",
+            "description": "幕号"
+          },
+          "name": {
+            "type": "string",
+            "description": "幕名"
+          },
+          "summary": {
+            "type": "string",
+            "description": "幕概述"
+          },
+          "percentage": {
+            "type": "string",
+            "description": "占比（如 25%）"
+          },
+          "beats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "beat_type": {
+                  "type": "string",
+                  "description": "节拍类型：开场画面/催化剂/辩论/中点/高潮等"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "节拍描述"
+                },
+                "chapters_involved": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "涉及章节"
+                },
+                "characters_involved": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "涉及人物ID"
+                },
+                "stakes": {
+                  "type": "string",
+                  "description": "赌注/风险"
+                },
+                "outcome": {
+                  "type": "string",
+                  "description": "结果"
+                }
+              },
+              "required": ["beat_type", "description"]
+            }
+          }
+        },
+        "required": ["act_number", "name", "beats"]
+      }
+    },
+    "main_plot": {
+      "type": ["string", "null"],
+      "description": "主线概述"
+    },
+    "subplots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subplot_id": {
+            "type": "string",
+            "description": "支线唯一标识"
+          },
+          "description": {
+            "type": "string",
+            "description": "支线描述"
+          },
+          "characters": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "涉及人物ID"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "结局"
+          },
+          "intersects_main_at": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "与主线交汇的章节"
+          }
+        },
+        "required": ["subplot_id", "description"]
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "主题"
+    },
+    "core_conflict": {
+      "type": ["string", "null"],
+      "description": "核心冲突"
+    }
+  },
+  "required": ["structure_type", "acts"]
+}

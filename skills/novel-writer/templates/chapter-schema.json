@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Chapter",
+  "description": "章节数据（含正文）",
+  "type": "object",
+  "properties": {
+    "chapter_id": {
+      "type": "string",
+      "description": "章节唯一标识"
+    },
+    "chapter_number": {
+      "type": "integer",
+      "description": "章号"
+    },
+    "volume_id": {
+      "type": ["string", "null"],
+      "description": "所属卷ID"
+    },
+    "title": {
+      "type": "string",
+      "description": "章名"
+    },
+    "content": {
+      "type": ["string", "null"],
+      "description": "章节正文"
+    },
+    "word_count": {
+      "type": "integer",
+      "description": "字数统计"
+    },
+    "pov_character": {
+      "type": ["string", "null"],
+      "description": "视角人物ID"
+    },
+    "location": {
+      "type": ["string", "null"],
+      "description": "地点"
+    },
+    "time": {
+      "type": ["string", "null"],
+      "description": "时间"
+    },
+    "summary": {
+      "type": ["string", "null"],
+      "description": "本章摘要（用于索引）"
+    },
+    "key_events": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "关键事件"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scene_id": { "type": "string" },
+          "location": { "type": "string" },
+          "time": { "type": "string" },
+          "pov": { "type": "string" },
+          "characters_present": { "type": "array", "items": { "type": "string" } },
+          "purpose": { "type": "string", "enum": ["plot_advancement", "revelation", "character_development", "atmosphere"] },
+          "conflict": { "type": "string" },
+          "turn": { "type": "string" },
+          "summary": { "type": "string" }
+        },
+        "required": ["scene_id", "purpose"]
+      }
+    },
+    "new_foreshadowing": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "本章埋设的伏笔ID"
+    },
+    "resolved_foreshadowing": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "本章回收的伏笔ID"
+    },
+    "relationship_changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "between": { "type": "array", "items": { "type": "string" } },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "reason": { "type": "string" }
+        },
+        "required": ["between", "from", "to"]
+      }
+    },
+    "quality_notes": {
+      "type": "object",
+      "properties": {
+        "progression": { "type": "string" },
+        "ai_flavor": { "type": "string" },
+        "pacing": { "type": "string" },
+        "consistency": { "type": "string" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "drafting", "final", "revised"],
+      "default": "planned",
+      "description": "章节状态"
+    },
+    "revision_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "revision_number": { "type": "integer" },
+          "changes": { "type": "string" },
+          "reason": { "type": "string" },
+          "timestamp": { "type": "string" }
+        },
+        "required": ["revision_number", "changes", "timestamp"]
+      }
+    },
+    "written_at": {
+      "type": ["string", "null"],
+      "description": "编写时间（ISO 8601）"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "description": "最后更新时间（ISO 8601）"
+    }
+  },
+  "required": ["chapter_id", "chapter_number", "title"]
+}

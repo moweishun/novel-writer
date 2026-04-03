@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Faction",
+  "description": "势力/阵营设定",
+  "type": "object",
+  "properties": {
+    "factions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "faction_id": {
+            "type": "string",
+            "description": "势力唯一标识"
+          },
+          "name": {
+            "type": "string",
+            "description": "势力名称"
+          },
+          "type": {
+            "type": "string",
+            "description": "势力类型：宗门/帝国/组织/家族/学派等"
+          },
+          "description": {
+            "type": "string",
+            "description": "简要描述（100-200字）"
+          },
+          "goals": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "核心目标"
+          },
+          "motivations": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "内在动机"
+          },
+          "power_level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "实力等级（1-10）"
+          },
+          "influence_areas": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "影响区域"
+          },
+          "resources": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "核心资源/优势"
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "弱点/短板"
+          },
+          "key_members": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "关键成员（关联到 characters.json 中的人物ID）"
+          },
+          "leadership": {
+            "type": "string",
+            "description": "领导结构"
+          },
+          "internal_factions": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "内部派系"
+          },
+          "allies": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "盟友势力ID"
+          },
+          "enemies": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "敌对势力ID"
+          },
+          "neutral": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "中立/摇摆势力ID"
+          },
+          "internal_conflicts": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "内部矛盾"
+          },
+          "split_risk": {
+            "type": "string",
+            "description": "潜在分裂风险"
+          }
+        },
+        "required": ["faction_id", "name"]
+      }
+    }
+  },
+  "required": ["factions"]
+}

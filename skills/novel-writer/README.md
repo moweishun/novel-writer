@@ -69,7 +69,7 @@ Phase 1-3: 设定阶段（顺序灵活）
     ↓
 Phase 4: 总大纲设计
     ↓
-Phase 5: 分卷大纲
+Phase 5: 分卷细纲
     ↓
 Phase 6: 章节编写（全自动）
     ↓
@@ -133,7 +133,7 @@ my-novel/
 │   ├── character-design.md           # 人物设计
 │   ├── faction-design.md             # 势力设计
 │   ├── outline-generation.md         # 大纲生成
-│   ├── volume-outline.md             # 分卷大纲
+│   ├── volume-outline.md             # 分卷细纲
 │   ├── chapter-writing.md            # 章节编写
 │   └── chapter-revision.md           # 章节修改
 ├── references/                       # 参考文档

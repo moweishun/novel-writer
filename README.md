@@ -14,7 +14,7 @@
 | **人物设定** | 设计主角/配角/反派，包含人物弧线和关系网络 |
 | **势力设定** | 构建势力冲突框架、内部矛盾与外交关系 |
 | **大纲规划** | 支持三幕、起承转合、英雄之旅等多种叙事结构 |
-| **分卷大纲** | 为每卷每章制定详细规划（POV 人物、情节点、钩子） |
+| **分卷细纲** | 为每卷每章制定详细规划（POV 人物、情节点、钩子） |
 | **章节编写** | 全自动生成，内置质量检查 |
 | **章节修改** | 根据反馈精确修改 |
 | **稿件导出** | 合并为完整 Markdown 文件 |
@@ -118,7 +118,7 @@ Phase 1-3: 设定阶段（顺序灵活）
      ↓
 Phase 4: 总大纲设计
      ↓
-Phase 5: 分卷大纲
+Phase 5: 分卷细纲
      ↓
 Phase 6: 章节编写（全自动 + 质量检查）
      ↓
@@ -148,7 +148,7 @@ novel-writer/.opencode/
 │   ├── character-design.md           # 人物设计
 │   ├── faction-design.md             # 势力设计
 │   ├── outline-generation.md         # 大纲生成
-│   ├── volume-outline.md             # 分卷大纲
+│   ├── volume-outline.md             # 分卷细纲
 │   ├── chapter-writing.md            # 章节编写
 │   └── chapter-revision.md           # 章节修改
 ├── references/                       # 参考文档
